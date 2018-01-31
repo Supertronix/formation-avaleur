@@ -1,6 +1,7 @@
 package org.usfirst.frc.equipe5910.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.VictorSP;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -10,6 +11,9 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  * directory.
  */
 public class RobotControleur extends IterativeRobot {
+	public static final int AVALEUR_MOTEUR = 11; // SP 6
+	public static final boolean INVERSION_AVALEUR_MOTEUR = false;
+	VictorSP avaleurBalles;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -19,6 +23,8 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		System.out.println("robotInit()");
+		avaleurBalles = new VictorSP(AVALEUR_MOTEUR);
+	
 	}
 
 	/**
@@ -27,6 +33,7 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		System.out.println("autonomousInit()");
+		avaleurBalles.set(1); // avaler
 	}
 
 	/**
@@ -44,6 +51,7 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void teleopInit() {
 		System.out.println("teleopInit()");
+		avaleurBalles.set(1); // rejeter
 	}
 
 	/**
@@ -60,6 +68,7 @@ public class RobotControleur extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 		System.out.println("testPeriodic()");
+		avaleurBalles.set(1); // arreter
 	}
 	
 	/**
